@@ -8,8 +8,6 @@ import {View, Animated, StatusBar} from 'react-native';
 import Images from '../config/images';
 import React, {Component} from 'react';
 import NetInfo from '@react-native-community/netinfo';
-import EmptyDataPlaceholder from '../components/emptyDataPlaceholder';
-import PaymentScreen from "../screen/PaymentScreen"
 
 class PreLoaderScreen extends Component {
   constructor(props) {
@@ -48,7 +46,7 @@ class PreLoaderScreen extends Component {
           translucent={true}
         />
 
-        {/* {!isNetworkAvailable && (
+        {!isNetworkAvailable && (
           <View style={{flex: 1}}>
             <EmptyDataPlaceholder
               titleText={'No internet connection'}
@@ -64,7 +62,7 @@ class PreLoaderScreen extends Component {
               }}
             />
           </View>
-        )} */}
+        )}
       </View>
     );
   }

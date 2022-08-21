@@ -1,6 +1,6 @@
 /**
  * Created by Linu Sherin Issac
- * on August 07, 2022
+ * on August 17, 2022
  * Navigation - Navigation methods
  */
 
@@ -10,7 +10,6 @@ import {NavigationContainer, DefaultTheme,DarkTheme} from '@react-navigation/nat
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 
 /** Screens */
-import PreLoaderScreen from '../screen/PreLoaderScreen';
 import PaymentScreen from '../screen/PaymentScreen';
 
 const Stack = createNativeStackNavigator()

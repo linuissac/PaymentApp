@@ -330,6 +330,7 @@ class PaymentScreen extends Component {
                 paddingVertical: 20,
                 marginHorizontal: 20,
                 borderRadius: 10,
+                marginBottom:10
               }}
               onPress={() => alert('Payment Success')}>
               <Text style={{color: Constants.APP_WHITE_COLOR}}>Pay AED 18</Text>
