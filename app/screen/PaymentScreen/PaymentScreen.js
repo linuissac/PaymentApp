@@ -152,19 +152,15 @@ class PaymentScreen extends Component {
   _renderPaymentOptions = ({item,index}) => {
     return (
       <View style={{  marginHorizontal:10}}>
+        <TouchableOpacity onPress={()=>alert(item.paymentType)}>
       <View
-        style={{
-          justifyContent: 'space-between',
-          flexDirection: 'row',
-          paddingVertical: 12,
-        
-        }}>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <View style={{borderWidth:1,borderColor:Constants.APP_POWDER_BLUE,alignItems:'center',justifyContent:'center',paddingHorizontal:15,borderRadius:2}}>
+        style={styles.payWrapper}>
+        <View style={styles.payInnerWrapper}>
+          <View style={styles.cardBorder}>
           <Image source={item.image} style={{width:25,height:25}} />
 
           </View>
-          <Text style={{marginHorizontal: 20}}>{item.paymentType}</Text>
+          <Text style={styles.cardOptions}>{item.paymentType}</Text>
         </View>
         <View style={{alignItems: 'flex-end'}}>
           <Image
@@ -172,8 +168,9 @@ class PaymentScreen extends Component {
             style={{transform: [{rotate: '180deg'}]}}
           />
         </View>
-      
       </View>
+      </TouchableOpacity>
+
       {index!==2 &&(
         <View style={styles.borderLineStyle} />
         )}
@@ -182,7 +179,7 @@ class PaymentScreen extends Component {
   };
 
   render() {
-    const {isLoading, notesArray} = this.props;
+
     const {isEnabled, preferedPaymentArray, cardArray, paymentOptionsArray} =
       this.state;
     return (
@@ -205,7 +202,7 @@ class PaymentScreen extends Component {
                   <View style={styles.deliveryRowContainer}>
                     <Text style={styles.deliverTextStyle}>Deliver to Home</Text>
                     <View style={styles.pointStyle} />
-                    <Text> 20 Mins</Text>
+                    <Text style={{color:Constants.APP_TEXT_BLACK_COLOR}}> 20 Mins</Text>
                   </View>
                   <Text style={styles.subDeliveryText}>
                     8-23/123 Jumeriah Village, Street 73
@@ -218,44 +215,27 @@ class PaymentScreen extends Component {
                 </View>
               </View>
               <View
-                style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  paddingVertical: 15,
-                  marginHorizontal: 20,
-                }}>
-                <Text>Order Total</Text>
-                <Text>AED 18</Text>
+                style={styles.orderContainer}>
+                <Text style={styles.orderText}>Order Total</Text>
+                <Text style={styles.orderText}>AED 18</Text>
               </View>
             </View>
             <View
-              style={{
-                marginHorizontal: 20,
-                borderWidth: 1,
-                borderColor: Constants.APP_POWDER_BLUE,
-                borderRadius: 5,
-                marginTop: 20,
-              }}>
+              style={styles.subContainer}>
               <View
-                style={{
-                  flexDirection: 'row',
-                  paddingVertical: 15,
-                  marginHorizontal: 10,
-                  justifyContent: 'space-between',
-                }}>
+                style={styles.imageWrapper}>
                 <Image
                   source={Images.yalaWallet}
                   style={styles.yalaCardStyle}
                 />
                 <View style={{marginHorizontal: 20}}>
-                  <Text>Yalah Wallet Balance</Text>
-                  <Text>AED 425</Text>
+                  <Text style={styles.yalaText}>Yalah Wallet Balance</Text>
+                  <Text style={styles.yalaText1}>AED 425</Text>
                 </View>
                 <Switch
                   trackColor={{
-                    false: Constants.APP_DARK_GREY,
-                    true: Constants.APP_DARK_GREY,
+                    false:Constants.APP_BLACK_COLOR, 
+                    true:Constants.APP_DARK_GREY,
                   }}
                   thumbColor={Constants.APP_WHITE_COLOR}
                   ios_backgroundColor={Constants.APP_DARK_GREY}
@@ -287,23 +267,15 @@ class PaymentScreen extends Component {
                 extraData={this.state}
               />
               <TouchableOpacity
-                style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flex: 1,
-                  paddingVertical: 10,
-                }}>
+                style={styles.addButtonContainer}
+                onPress={()=>alert("Add Card")}
+                >
                 <Image
                   style={{width: 20, height: 20}}
                   source={Images.addButton}
                 />
                 <Text
-                  style={{
-                    fontSize: 14,
-                    fontWeight: '700',
-                    color: Constants.APP_PURPLE_COLOR,
-                  }}>
+                  style={styles.addButtonText}>
                   Add Card
                 </Text>
               </TouchableOpacity>
@@ -320,20 +292,13 @@ class PaymentScreen extends Component {
               />
             </View>
 
-            <Text style={{textAlign: 'center', paddingVertical: 10}}>
-              Pay using Apple Pay{`${isEnabled ? ' &  Yalah Wallet' : ''}`}
+            <Text style={styles.bottomText}>
+              Pay using <Text style={styles.walletText}>Apple Pay{`${isEnabled ? ' &  Yalah Wallet' : ''}`}</Text>
             </Text>
             <TouchableOpacity
-              style={{
-                backgroundColor: Constants.APP_PURPLE_COLOR,
-                alignItems: 'center',
-                paddingVertical: 20,
-                marginHorizontal: 20,
-                borderRadius: 10,
-                marginBottom:10
-              }}
+              style={styles.buttonContainer}
               onPress={() => alert('Payment Success')}>
-              <Text style={{color: Constants.APP_WHITE_COLOR}}>Pay AED 18</Text>
+              <Text style={styles.buttonText}>Pay AED 18</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>

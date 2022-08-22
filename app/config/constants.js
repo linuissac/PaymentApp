@@ -13,10 +13,9 @@ export default Constants = {
   APP_BASE_WIDTH: 414,
 
   Fonts: {
-    BOLD: Platform.OS === 'ios' ? 'lato-bold' : 'lato_bold',
-    LIGHT: Platform.OS === 'ios' ? 'Roboto-Light' : 'Roboto_Light',
-    MEDIUM: Platform.OS === 'ios' ? 'lato-medium' : 'lato_medium',
-    REGULAR: Platform.OS === 'ios' ? 'lato-regular' : 'lato_regular',
+    BOLD: Platform.OS === 'ios' ? 'Barlow-Bold' : 'Barlow-Bold',
+    MEDIUM: Platform.OS === 'ios' ? 'Barlow-SemiBold' : 'Barlow-SemiBold',
+    REGULAR:Platform.OS === 'ios' ? 'Barlow-Regular' : 'Barlow-Regular',
   },
 
   APP_THEME_COLOR: '#1A4792',
@@ -31,6 +30,7 @@ export default Constants = {
   APP_POWDER_BLUE:'#DCE6FF',
   APP_DARK_BLUE_TEXT:'#526895',
   APP_DARK_GREY:'rgb(110,120,150)',
+  APP_TEXT_BLACK_COLOR:'#19202E',
 
   SCREEN_WIDTH: width,
   SCREEN_HEIGHT: height,

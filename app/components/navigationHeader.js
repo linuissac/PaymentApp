@@ -66,6 +66,7 @@
       fontWeight:'700',
       textAlign: 'center',
       color: Constants.APP_BLACK_COLOR,
+      fontFamily:Constants.Fonts.BOLD
     },
   });
   
